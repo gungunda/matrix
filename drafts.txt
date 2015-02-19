@@ -1,0 +1,10 @@
+storylist = [line for line in open('D:\matrix\stories_small.txt')]
+storydict = {x:y for x,y in enumerate(storylist)}
+
+worddict = {}
+for (key, value) in storydict.items():
+    for word in set(value.split()):
+        if word in worddict:
+            worddict[word].add(key)
+        else:
+            worddict[word] = {key}
